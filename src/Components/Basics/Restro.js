@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import "./style.css";
+import Menu from "./menuApi.js";
+import MenuCard from "./MenuCard.js"
+
 
 const Restro = () => {
+    // useState hooks helps in getting data and it returns array of two element.
+    const [menuData, setMenuData] = React.useState(Menu);
     return (
         <>
-            <div className="card-container">
-                <div className="card">
-                    <div className="card-body">
-                        <span className="card-number card-circle subtle">1</span>
-                    </div>
-                </div>
-            </div>
+        <MenuCard menuData={menuData} />
         </>
     );
 };
-
+ 
 export default Restro;

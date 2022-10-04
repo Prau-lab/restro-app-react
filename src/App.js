@@ -1,12 +1,10 @@
-import React from 'react'
+import React from 'react';
+import Restro from "./Components/Basics/Restro"
 
 const App = () => {
   return (
-    <div>
-      <h1>hello world</h1>
-    </div>
-  )
-}
+   <Restro />
+  );
+};
 
-
-export default App
+export default App;

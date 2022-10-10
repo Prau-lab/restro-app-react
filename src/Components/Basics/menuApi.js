@@ -1,7 +1,7 @@
 const Menu = [
     {
       id: 1,
-      image: "images/maggi.jpg",
+      image: "../images/maggi.jpg",
       name: "maggi",
       category: "breakfast",
       price: "12₹",
@@ -11,7 +11,7 @@ const Menu = [
   
     {
       id: 2,
-      image: "images/allupakoida.jpg",
+      image: "../images/allupakoida.jpg",
       name: "allu pakoida",
       category: "evening",
       price: "20₹",
@@ -20,7 +20,7 @@ const Menu = [
     },
     {
       id: 3,
-      image: "images/corn.jpg",
+      image: "../images/corn.jpg",
       name: "corn",
       category: "breakfast",
       price: "10₹",

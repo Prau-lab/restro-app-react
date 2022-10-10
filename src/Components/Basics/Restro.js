@@ -2,15 +2,29 @@ import React, { useState } from 'react';
 import "./style.css";
 import Menu from "./menuApi.js";
 import MenuCard from "./MenuCard.js"
+import Navbar from './Navbar.js';
 
 
 const Restro = () => {
 
+    const uniqueList = [...new Set(Menu.map((curElem) => {
+        return curElem.category;
+    })
+    ),
+        "All",
+    ];
+
     // useState hooks helps in getting data and it returns array of two element.
-    
+
     const [menuData, setMenuData] = React.useState(Menu);
+    const [menuList, setMenuList] = React.useState(uniqueList)
 
     const filterItem = (category) => {
+        if (category === "All") {
+            setMenuData(Menu);
+            return;
+        }
+
         const updatedList = Menu.filter((curElem) => {
             return curElem.category = category;
         });
@@ -18,21 +32,10 @@ const Restro = () => {
     };
     return (
         <>
-            <nav className="navbar">
-                <div className="btn-group">
-
-                    {/* whenever you are calling function and passing argument you should better add a flat arrow function. */}
-                    
-                    <button className="btn-group__item" onClick={() => filterItem("breakfast")}>Breakfast</button>
-                    <button className="btn-group__item" onClick={() => filterItem("lunch")}>Lunch</button>
-                    <button className="btn-group__item" onClick={() => filterItem("evening")}>Evening</button>
-                    <button className="btn-group__item" onClick={() => filterItem("dinner")}>Dinner</button>
-                    <button className="btn-group__item" onClick={() => setMenuData(Menu)}>All</button>
-                </div>
-            </nav>
+            <Navbar filterItem={filterItem} menuList={menuList} />
             <MenuCard menuData={menuData} />
         </>
     );
-}; 
+};
 
 export default Restro;
